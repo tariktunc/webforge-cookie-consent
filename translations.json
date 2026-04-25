@@ -1,0 +1,209 @@
+{
+  "tr": {
+    "banner": {
+      "title": "Bu sitede cerez kullaniyoruz",
+      "description": "Web sitemizi gelistirmek, kullaniciya ozel icerik sunmak ve trafigi analiz etmek icin cerezler kullaniyoruz. Tercihlerinizi her zaman degistirebilirsiniz.",
+      "accept": "Kabul Et",
+      "reject": "Reddet",
+      "preferences": "Tercihleri Yonet"
+    },
+    "modal": {
+      "title": "Cerez Tercihleri",
+      "description": "Hangi cerez kategorilerini kabul ettiginizi secin. Bu tercihleri istediginiz zaman degistirebilirsiniz.",
+      "save": "Tercihleri Kaydet",
+      "acceptAll": "Tumunu Kabul Et",
+      "rejectAll": "Tumunu Reddet",
+      "close": "Kapat",
+      "categories": {
+        "essential": { "title": "Zorunlu", "description": "Sitenin temel islevleri icin gereklidir. Devre disi birakilamaz." },
+        "analytics": { "title": "Analitik", "description": "Ziyaretci davranisini anlamamiza yardimci olur (anonim)." },
+        "marketing": { "title": "Pazarlama", "description": "Size ozel reklamlar ve kampanyalar icin kullanilir." },
+        "functional": { "title": "Islevsel", "description": "Tema, dil gibi tercihleri hatirlamamizi saglar." }
+      }
+    }
+  },
+  "en": {
+    "banner": {
+      "title": "We use cookies on this site",
+      "description": "We use cookies to improve our website, deliver personalized content, and analyze traffic. You can change your preferences at any time.",
+      "accept": "Accept",
+      "reject": "Reject",
+      "preferences": "Manage Preferences"
+    },
+    "modal": {
+      "title": "Cookie Preferences",
+      "description": "Choose which cookie categories you accept. You can change these preferences anytime.",
+      "save": "Save Preferences",
+      "acceptAll": "Accept All",
+      "rejectAll": "Reject All",
+      "close": "Close",
+      "categories": {
+        "essential": { "title": "Essential", "description": "Required for core site functionality. Cannot be disabled." },
+        "analytics": { "title": "Analytics", "description": "Help us understand visitor behavior (anonymous)." },
+        "marketing": { "title": "Marketing", "description": "Used for personalized ads and campaigns." },
+        "functional": { "title": "Functional", "description": "Remember preferences like theme and language." }
+      }
+    }
+  },
+  "de": {
+    "banner": {
+      "title": "Wir verwenden Cookies auf dieser Website",
+      "description": "Wir verwenden Cookies, um unsere Website zu verbessern, personalisierte Inhalte bereitzustellen und den Datenverkehr zu analysieren. Sie konnen Ihre Einstellungen jederzeit andern.",
+      "accept": "Akzeptieren",
+      "reject": "Ablehnen",
+      "preferences": "Einstellungen verwalten"
+    },
+    "modal": {
+      "title": "Cookie-Einstellungen",
+      "description": "Wahlen Sie aus, welche Cookie-Kategorien Sie akzeptieren. Sie konnen diese Einstellungen jederzeit andern.",
+      "save": "Einstellungen speichern",
+      "acceptAll": "Alle akzeptieren",
+      "rejectAll": "Alle ablehnen",
+      "close": "Schliessen",
+      "categories": {
+        "essential": { "title": "Notwendig", "description": "Fur grundlegende Funktionen erforderlich. Kann nicht deaktiviert werden." },
+        "analytics": { "title": "Analyse", "description": "Hilft uns, das Besucherverhalten zu verstehen (anonym)." },
+        "marketing": { "title": "Marketing", "description": "Wird fur personalisierte Werbung verwendet." },
+        "functional": { "title": "Funktional", "description": "Speichert Praferenzen wie Theme und Sprache." }
+      }
+    }
+  },
+  "fr": {
+    "banner": {
+      "title": "Nous utilisons des cookies sur ce site",
+      "description": "Nous utilisons des cookies pour ameliorer notre site web, fournir un contenu personnalise et analyser le trafic. Vous pouvez modifier vos preferences a tout moment.",
+      "accept": "Accepter",
+      "reject": "Refuser",
+      "preferences": "Gerer les preferences"
+    },
+    "modal": {
+      "title": "Preferences de cookies",
+      "description": "Choisissez les categories de cookies que vous acceptez. Vous pouvez modifier ces preferences a tout moment.",
+      "save": "Enregistrer les preferences",
+      "acceptAll": "Tout accepter",
+      "rejectAll": "Tout refuser",
+      "close": "Fermer",
+      "categories": {
+        "essential": { "title": "Essentiels", "description": "Necessaires aux fonctions de base du site. Ne peuvent pas etre desactives." },
+        "analytics": { "title": "Analytique", "description": "Nous aident a comprendre le comportement des visiteurs (anonyme)." },
+        "marketing": { "title": "Marketing", "description": "Utilises pour des publicites personnalisees." },
+        "functional": { "title": "Fonctionnel", "description": "Memorise les preferences telles que theme et langue." }
+      }
+    }
+  },
+  "es": {
+    "banner": {
+      "title": "Utilizamos cookies en este sitio",
+      "description": "Utilizamos cookies para mejorar nuestro sitio web, ofrecer contenido personalizado y analizar el trafico. Puede cambiar sus preferencias en cualquier momento.",
+      "accept": "Aceptar",
+      "reject": "Rechazar",
+      "preferences": "Gestionar preferencias"
+    },
+    "modal": {
+      "title": "Preferencias de cookies",
+      "description": "Elija que categorias de cookies acepta. Puede cambiar estas preferencias en cualquier momento.",
+      "save": "Guardar preferencias",
+      "acceptAll": "Aceptar todo",
+      "rejectAll": "Rechazar todo",
+      "close": "Cerrar",
+      "categories": {
+        "essential": { "title": "Esenciales", "description": "Necesarias para las funciones basicas del sitio. No se pueden desactivar." },
+        "analytics": { "title": "Analiticas", "description": "Nos ayudan a entender el comportamiento de los visitantes (anonimo)." },
+        "marketing": { "title": "Marketing", "description": "Se utilizan para publicidad personalizada." },
+        "functional": { "title": "Funcionales", "description": "Recuerdan preferencias como tema e idioma." }
+      }
+    }
+  },
+  "it": {
+    "banner": {
+      "title": "Utilizziamo i cookie su questo sito",
+      "description": "Utilizziamo i cookie per migliorare il nostro sito web, fornire contenuti personalizzati e analizzare il traffico. Puoi modificare le tue preferenze in qualsiasi momento.",
+      "accept": "Accetta",
+      "reject": "Rifiuta",
+      "preferences": "Gestisci preferenze"
+    },
+    "modal": {
+      "title": "Preferenze cookie",
+      "description": "Scegli quali categorie di cookie accettare. Puoi modificare queste preferenze in qualsiasi momento.",
+      "save": "Salva preferenze",
+      "acceptAll": "Accetta tutti",
+      "rejectAll": "Rifiuta tutti",
+      "close": "Chiudi",
+      "categories": {
+        "essential": { "title": "Essenziali", "description": "Necessari per le funzioni di base del sito. Non possono essere disattivati." },
+        "analytics": { "title": "Analitici", "description": "Ci aiutano a capire il comportamento dei visitatori (anonimo)." },
+        "marketing": { "title": "Marketing", "description": "Utilizzati per pubblicita personalizzate." },
+        "functional": { "title": "Funzionali", "description": "Ricordano preferenze come tema e lingua." }
+      }
+    }
+  },
+  "ar": {
+    "banner": {
+      "title": "نستخدم ملفات تعريف الارتباط على هذا الموقع",
+      "description": "نستخدم ملفات تعريف الارتباط لتحسين موقعنا الإلكتروني وتقديم محتوى مخصص وتحليل حركة المرور. يمكنك تغيير تفضيلاتك في أي وقت.",
+      "accept": "قبول",
+      "reject": "رفض",
+      "preferences": "إدارة التفضيلات"
+    },
+    "modal": {
+      "title": "تفضيلات ملفات تعريف الارتباط",
+      "description": "اختر فئات ملفات تعريف الارتباط التي تقبلها. يمكنك تغيير هذه التفضيلات في أي وقت.",
+      "save": "حفظ التفضيلات",
+      "acceptAll": "قبول الكل",
+      "rejectAll": "رفض الكل",
+      "close": "إغلاق",
+      "categories": {
+        "essential": { "title": "أساسي", "description": "مطلوبة للوظائف الأساسية للموقع. لا يمكن تعطيلها." },
+        "analytics": { "title": "تحليلية", "description": "تساعدنا على فهم سلوك الزوار (مجهول الهوية)." },
+        "marketing": { "title": "تسويق", "description": "تُستخدم للإعلانات المخصصة." },
+        "functional": { "title": "وظيفية", "description": "تتذكر التفضيلات مثل السمة واللغة." }
+      }
+    }
+  },
+  "he": {
+    "banner": {
+      "title": "אנו משתמשים בעוגיות באתר זה",
+      "description": "אנו משתמשים בעוגיות כדי לשפר את האתר שלנו, לספק תוכן מותאם אישית ולנתח תעבורה. ניתן לשנות את ההעדפות שלך בכל עת.",
+      "accept": "אישור",
+      "reject": "דחייה",
+      "preferences": "ניהול העדפות"
+    },
+    "modal": {
+      "title": "העדפות עוגיות",
+      "description": "בחר אילו קטגוריות עוגיות אתה מקבל. ניתן לשנות העדפות אלה בכל עת.",
+      "save": "שמור העדפות",
+      "acceptAll": "קבל הכל",
+      "rejectAll": "דחה הכל",
+      "close": "סגור",
+      "categories": {
+        "essential": { "title": "חיוניות", "description": "נדרשות לפונקציות הליבה של האתר. לא ניתן לבטל אותן." },
+        "analytics": { "title": "אנליטיקה", "description": "עוזרות לנו להבין את התנהגות המבקרים (אנונימי)." },
+        "marketing": { "title": "שיווק", "description": "משמשות לפרסומות מותאמות אישית." },
+        "functional": { "title": "פונקציונלי", "description": "זוכרות העדפות כגון ערכת נושא ושפה." }
+      }
+    }
+  },
+  "ru": {
+    "banner": {
+      "title": "Мы используем файлы cookie на этом сайте",
+      "description": "Мы используем файлы cookie для улучшения нашего сайта, предоставления персонализированного контента и анализа трафика. Вы можете изменить свои настройки в любое время.",
+      "accept": "Принять",
+      "reject": "Отклонить",
+      "preferences": "Управление настройками"
+    },
+    "modal": {
+      "title": "Настройки файлов cookie",
+      "description": "Выберите, какие категории файлов cookie вы принимаете. Вы можете изменить эти настройки в любое время.",
+      "save": "Сохранить настройки",
+      "acceptAll": "Принять все",
+      "rejectAll": "Отклонить все",
+      "close": "Закрыть",
+      "categories": {
+        "essential": { "title": "Необходимые", "description": "Требуются для основных функций сайта. Нельзя отключить." },
+        "analytics": { "title": "Аналитика", "description": "Помогают нам понять поведение посетителей (анонимно)." },
+        "marketing": { "title": "Маркетинг", "description": "Используются для персонализированной рекламы." },
+        "functional": { "title": "Функциональные", "description": "Запоминают предпочтения, такие как тема и язык." }
+      }
+    }
+  }
+}
