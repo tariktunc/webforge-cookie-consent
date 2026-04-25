@@ -1,6 +1,7 @@
 export { CookieBanner } from './CookieBanner';
 export { CookiePreferences } from './CookiePreferences';
 export { ConsentModeInit } from './ConsentModeInit';
+export { BlakfyBadge } from './BlakfyBadge';
 export {
   acceptAll,
   rejectAll,

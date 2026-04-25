@@ -11,6 +11,7 @@ import {
   useOpenPreferencesEvent,
 } from './consent-store';
 import translations from './translations.json';
+import { BlakfyBadge } from './BlakfyBadge';
 import type { ConsentState, Locale, Theme, Translation, ConsentCategory } from './types';
 
 type Props = {
@@ -19,6 +20,7 @@ type Props = {
   font?: string;
   borderWidth?: string;
   borderRadius?: string;
+  blakfyBadgeUrl?: string;
   open: boolean;
   onOpenChange: (v: boolean) => void;
 };
@@ -31,6 +33,7 @@ export function CookiePreferences({
   font,
   borderWidth = '3px',
   borderRadius = '0.5rem',
+  blakfyBadgeUrl,
   open,
   onOpenChange,
 }: Props) {
@@ -122,6 +125,10 @@ export function CookiePreferences({
             >
               {t.modal.acceptAll}
             </button>
+          </div>
+
+          <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-800 flex justify-center">
+            <BlakfyBadge url={blakfyBadgeUrl} />
           </div>
 
           <Dialog.Close

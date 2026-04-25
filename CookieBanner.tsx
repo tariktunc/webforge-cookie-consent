@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { acceptAll, rejectAll, hasConsent, CHANGE_EVENT } from './consent-store';
 import { CookiePreferences } from './CookiePreferences';
+import { BlakfyBadge } from './BlakfyBadge';
 import translations from './translations.json';
 import type { Locale, Theme, Translation } from './types';
 
@@ -12,6 +13,7 @@ type Props = {
   font?: string;
   borderWidth?: string;
   borderRadius?: string;
+  blakfyBadgeUrl?: string;
 };
 
 const DEFAULT_FONT = "'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
@@ -40,6 +42,7 @@ export function CookieBanner({
   font = DEFAULT_FONT,
   borderWidth = DEFAULT_BORDER_WIDTH,
   borderRadius = DEFAULT_BORDER_RADIUS,
+  blakfyBadgeUrl,
 }: Props) {
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
@@ -73,6 +76,7 @@ export function CookieBanner({
             <div className="flex-1 text-neutral-700 dark:text-neutral-200">
               <p className="font-semibold text-[clamp(12px,2.5vw,16px)] leading-tight">{t.banner.title}</p>
               <p className="mt-1 text-neutral-600 dark:text-neutral-400 text-[clamp(10px,2vw,13px)] leading-snug">{t.banner.description}</p>
+              <BlakfyBadge url={blakfyBadgeUrl} className="mt-2" />
             </div>
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:shrink-0">
               <button
@@ -109,6 +113,7 @@ export function CookieBanner({
         font={font}
         borderWidth={borderWidth}
         borderRadius={borderRadius}
+        blakfyBadgeUrl={blakfyBadgeUrl}
         open={prefsOpen}
         onOpenChange={setPrefsOpen}
       />

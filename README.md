@@ -63,6 +63,7 @@ export default function RootLayout({ children }) {
 | Buton border: default **3px**, override edilebilir | ✅ (`borderWidth` prop) |
 | Border radius: default 0.5rem, override edilebilir | ✅ (`borderRadius` prop) |
 | Otomatik proje token'i tespiti (setup.mjs) | ✅ |
+| **Blakfy Studio imzasi** (Powered by linki) | ✅ Non-removable |
 | Re-open butonu (Footer linki) | ✅ |
 
 ---
