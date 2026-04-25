@@ -135,6 +135,8 @@ export function CookiePreferences({
               const checked = state[cat];
               const disabled = cat === 'essential';
               const count = list.length;
+              const hasServices = Object.values(services).some((arr) => arr && arr.length > 0);
+              if (!hasServices && cat !== 'essential' && count === 0) return null;
               return (
                 <div key={cat} className="space-y-2">
                   <div

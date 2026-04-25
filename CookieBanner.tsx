@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { acceptAll, rejectAll, hasConsent, CHANGE_EVENT } from './consent-store';
+import { acceptAll, rejectAll, hasConsent, setCookieDomain, CHANGE_EVENT } from './consent-store';
 import { CookiePreferences } from './CookiePreferences';
 import { BlakfyBadge } from './BlakfyBadge';
 import translations from './translations.json';
-import type { Locale, Theme, Translation, ServicesByCategory } from './types';
+import type { Locale, Theme, Translation, ServicesByCategory, ConsentChangeHandler } from './types';
 
 type Props = {
   locale?: Locale;
@@ -15,6 +15,8 @@ type Props = {
   borderRadius?: string;
   blakfyBadgeUrl?: string;
   services?: ServicesByCategory;
+  cookieDomain?: string;
+  onConsentChange?: ConsentChangeHandler;
 };
 
 const DEFAULT_FONT = "'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
@@ -45,7 +47,23 @@ export function CookieBanner({
   borderRadius = DEFAULT_BORDER_RADIUS,
   blakfyBadgeUrl,
   services,
+  cookieDomain,
+  onConsentChange,
 }: Props) {
+  useEffect(() => {
+    setCookieDomain(cookieDomain);
+  }, [cookieDomain]);
+
+  useEffect(() => {
+    if (!onConsentChange) return;
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail) onConsentChange(detail);
+    };
+    window.addEventListener(CHANGE_EVENT, handler);
+    return () => window.removeEventListener(CHANGE_EVENT, handler);
+  }, [onConsentChange]);
+
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;

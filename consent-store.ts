@@ -17,10 +17,17 @@ const DEFAULT_STATE: ConsentState = {
   functional: false,
 };
 
+let _cookieDomain: string | undefined = undefined;
+
+export function setCookieDomain(domain: string | undefined) {
+  _cookieDomain = domain;
+}
+
 function setCookie(name: string, value: string, days: number) {
   const d = new Date();
   d.setTime(d.getTime() + days * 864e5);
-  document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+  const domainPart = _cookieDomain ? `;domain=${_cookieDomain}` : '';
+  document.cookie = `${name}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/${domainPart};SameSite=Lax`;
 }
 
 function getCookie(name: string): string | null {

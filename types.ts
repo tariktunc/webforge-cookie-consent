@@ -26,7 +26,10 @@ export type Theme = 'light' | 'dark' | 'auto';
 export type SubService = {
   id: string;
   name: string;
+  description?: string;
 };
+
+export type ConsentChangeHandler = (record: ConsentRecord) => void;
 
 export type StorageType = 'cookie' | 'localStorage' | 'sessionStorage' | 'indexedDB' | 'pixel';
 

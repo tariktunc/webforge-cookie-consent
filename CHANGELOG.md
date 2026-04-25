@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.2.0] — 2026-04-26
+
+### Added
+- `onConsentChange` callback prop (analitik dispatcher entegrasyonu)
+- `cookieDomain` prop (multi-subdomain `.example.com` destegi)
+- Bos kategori UI: services prop verilmediyse non-essential kategoriler gizlenir
+- `setCookieDomain()` programatik API
+- `ConsentChangeHandler` tipi export
+- SubService.description optional alan
+- CONTRIBUTING.md
+- tests/README.md (Playwright + axe-core test stratejisi)
+
+### Fixed
+- package.json version 2.1.1 → 2.2.0 hizalandi (tag uyumu)
+
+## [2.1.1] — 2026-04-26
+- 'Operated by Blakfy Studio' imza metni
+
 ## [2.1.0] — 2026-04-26
 
 ### Added — Tam Usercentrics Paritesi
