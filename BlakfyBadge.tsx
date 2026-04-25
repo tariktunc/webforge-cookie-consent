@@ -5,7 +5,7 @@ type Props = {
   className?: string;
 };
 
-const DEFAULT_URL = 'https://blakfy.studio';
+const DEFAULT_URL = 'https://blakfy.com';
 
 export function BlakfyBadge({ url = DEFAULT_URL, className = '' }: Props) {
   return (
