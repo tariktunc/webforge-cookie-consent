@@ -11,20 +11,31 @@ import {
   useOpenPreferencesEvent,
 } from './consent-store';
 import translations from './translations.json';
-import type { ConsentState, Locale, Translation, ConsentCategory } from './types';
+import type { ConsentState, Locale, Theme, Translation, ConsentCategory } from './types';
 
 type Props = {
   locale?: Locale;
+  theme?: Theme;
   open: boolean;
   onOpenChange: (v: boolean) => void;
 };
 
 const CATEGORIES: ConsentCategory[] = ['essential', 'analytics', 'marketing', 'functional'];
 
-export function CookiePreferences({ locale = 'en', open, onOpenChange }: Props) {
+export function CookiePreferences({ locale = 'en', theme = 'auto', open, onOpenChange }: Props) {
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;
   const isRtl = locale === 'ar' || locale === 'he';
   const [state, setState] = useState<ConsentState>(() => getConsent());
+  const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    if (theme === 'light' || theme === 'dark') { setResolvedTheme(theme); return; }
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const update = () => setResolvedTheme(mql.matches ? 'dark' : 'light');
+    update();
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, [theme]);
 
   useEffect(() => { if (open) setState(getConsent()); }, [open]);
   useOpenPreferencesEvent(() => onOpenChange(true));
@@ -37,10 +48,10 @@ export function CookiePreferences({ locale = 'en', open, onOpenChange }: Props) 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Dialog.Overlay className={`${resolvedTheme === 'dark' ? 'dark' : ''} fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0`} />
         <Dialog.Content
           dir={isRtl ? 'rtl' : 'ltr'}
-          className="fixed left-1/2 top-1/2 z-[10000] w-[min(560px,calc(100%-2rem))] max-h-[85vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg bg-white p-6 shadow-xl focus:outline-none dark:bg-neutral-950 data-[state=open]:animate-in data-[state=closed]:animate-out"
+          className={`${resolvedTheme === 'dark' ? 'dark' : ''} fixed left-1/2 top-1/2 z-[10000] w-[min(560px,calc(100%-2rem))] max-h-[85vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg bg-white p-6 shadow-xl focus:outline-none dark:bg-neutral-950 data-[state=open]:animate-in data-[state=closed]:animate-out`}
         >
           <Dialog.Title className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
             {t.modal.title}

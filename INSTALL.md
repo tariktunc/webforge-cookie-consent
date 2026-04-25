@@ -11,15 +11,23 @@
 `degit` git geçmişi olmadan klasörü kopyalar, en hafif yöntem.
 
 ```bash
+# 1. Klasoru cek
 npx degit tariktunc/webforge-cookie-consent src/components/consent
-```
 
-Sonra:
-```bash
+# 2. Bagimliliklar
 npm i @radix-ui/react-dialog @radix-ui/react-switch
+
+# 3. Dil secimi (interaktif — varsayilan: TR)
+cd src/components/consent && node setup.mjs
 ```
 
-**Bitti.** `src/components/consent/` icinde tum dosyalar hazir.
+`setup.mjs` size sorar:
+- Hangi dilleri dahil etmek istiyorsunuz? (virgulle, ENTER = sadece TR)
+- Varsayilan dil? (ENTER = TR)
+
+Secilmeyen diller `translations.json`'dan **silinir** → bundle ~40% kucur.
+
+**Bitti.** `src/components/consent/` icinde sadece sectiginiz diller hazir.
 
 ---
 

@@ -4,17 +4,36 @@ import { useEffect, useState } from 'react';
 import { acceptAll, rejectAll, hasConsent, CHANGE_EVENT } from './consent-store';
 import { CookiePreferences } from './CookiePreferences';
 import translations from './translations.json';
-import type { Locale, Translation } from './types';
+import type { Locale, Theme, Translation } from './types';
 
 type Props = {
   locale?: Locale;
+  theme?: Theme;
 };
 
-export function CookieBanner({ locale = 'en' }: Props) {
+function useThemeClass(theme: Theme) {
+  const [resolved, setResolved] = useState<'light' | 'dark'>('light');
+  useEffect(() => {
+    if (theme === 'light' || theme === 'dark') {
+      setResolved(theme);
+      return;
+    }
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const update = () => setResolved(mql.matches ? 'dark' : 'light');
+    update();
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, [theme]);
+  return resolved;
+}
+
+export function CookieBanner({ locale = 'en', theme = 'auto' }: Props) {
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;
   const isRtl = locale === 'ar' || locale === 'he';
+  const resolvedTheme = useThemeClass(theme);
+  const themeClass = resolvedTheme === 'dark' ? 'wf-cc dark' : 'wf-cc';
 
   useEffect(() => {
     setVisible(!hasConsent());
@@ -26,7 +45,7 @@ export function CookieBanner({ locale = 'en' }: Props) {
   if (!visible && !prefsOpen) return null;
 
   return (
-    <>
+    <div className={themeClass}>
       {visible && (
         <div
           role="region"
@@ -67,9 +86,10 @@ export function CookieBanner({ locale = 'en' }: Props) {
       )}
       <CookiePreferences
         locale={locale}
+        theme={theme}
         open={prefsOpen}
         onOpenChange={setPrefsOpen}
       />
-    </>
+    </div>
   );
 }

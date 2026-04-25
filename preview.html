@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebForge Cookie Consent — Light & Dark Preview</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' }</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; }
+  .panel-light { background: linear-gradient(180deg, #fafafa 0%, #e5e5e5 100%); }
+  .panel-dark { background: linear-gradient(180deg, #0a0a0a 0%, #171717 100%); }
+</style>
+</head>
+<body>
+
+<header class="p-6 border-b border-neutral-200 bg-white">
+  <h1 class="text-2xl font-bold text-neutral-900">WebForge Cookie Consent</h1>
+  <p class="text-sm text-neutral-600 mt-1">Sol: Light Mode · Sag: Dark Mode · Iki taraf da canli</p>
+  <div class="mt-4 flex gap-2 flex-wrap items-center">
+    <span class="text-sm font-medium text-neutral-700">Dil:</span>
+    <button data-lang="tr" class="lang-btn px-3 py-1 rounded bg-neutral-900 text-white text-sm">TR</button>
+    <button data-lang="en" class="lang-btn px-3 py-1 rounded bg-neutral-200 text-sm">EN</button>
+    <button data-lang="de" class="lang-btn px-3 py-1 rounded bg-neutral-200 text-sm">DE</button>
+    <button data-lang="ar" class="lang-btn px-3 py-1 rounded bg-neutral-200 text-sm">AR</button>
+    <button data-lang="he" class="lang-btn px-3 py-1 rounded bg-neutral-200 text-sm">HE</button>
+    <span class="ml-4 text-sm font-medium text-neutral-700">Goster:</span>
+    <button onclick="setView('banner')" class="px-3 py-1 rounded bg-blue-600 text-white text-sm">Banner</button>
+    <button onclick="setView('modal')" class="px-3 py-1 rounded bg-blue-600 text-white text-sm">Modal</button>
+    <button onclick="setView('both')" class="px-3 py-1 rounded bg-blue-600 text-white text-sm">Ikisi</button>
+  </div>
+</header>
+
+<div class="grid grid-cols-1 md:grid-cols-2 min-h-[calc(100vh-150px)]">
+  <!-- LIGHT -->
+  <section class="panel-light relative overflow-hidden">
+    <div class="p-6">
+      <span class="inline-block px-2 py-1 rounded bg-white text-neutral-700 text-xs font-semibold border border-neutral-200">☀ LIGHT MODE</span>
+      <h2 class="mt-4 text-xl font-semibold text-neutral-900">Ornek Sayfa Icerigi</h2>
+      <p class="mt-2 text-sm text-neutral-700 leading-relaxed">Cookie banner alt sabit, modal ekran ortasinda. Reddet ve Kabul butonlari esit prominence.</p>
+    </div>
+
+    <!-- BANNER LIGHT -->
+    <div class="banner-host absolute inset-x-0 bottom-0 hidden">
+      <div role="region" aria-label="Cookie consent" class="border-t border-neutral-200 bg-white/95 p-4 shadow-2xl backdrop-blur">
+        <div class="flex flex-col gap-3 text-left">
+          <div class="text-sm">
+            <p class="font-semibold text-neutral-900" data-i18n="banner.title"></p>
+            <p class="mt-1 text-neutral-600 text-xs" data-i18n="banner.description"></p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <button onclick="showModal()" class="min-h-[40px] rounded-md border border-neutral-300 px-3 text-xs font-medium text-neutral-900 hover:bg-neutral-50" data-i18n="banner.preferences"></button>
+            <div class="flex gap-2">
+              <button onclick="hideAll()" class="flex-1 min-h-[40px] rounded-md border border-neutral-300 bg-white px-3 text-xs font-semibold text-neutral-900 hover:bg-neutral-50" data-i18n="banner.reject"></button>
+              <button onclick="hideAll()" class="flex-1 min-h-[40px] rounded-md bg-neutral-900 px-3 text-xs font-semibold text-white hover:bg-neutral-800" data-i18n="banner.accept"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL LIGHT -->
+    <div class="modal-host absolute inset-0 hidden flex items-center justify-center p-4">
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="setView('banner')"></div>
+      <div class="relative w-full max-w-[420px] max-h-[80%] overflow-y-auto rounded-lg bg-white p-5 shadow-xl">
+        <h3 class="text-base font-semibold text-neutral-900" data-i18n="modal.title"></h3>
+        <p class="mt-1 text-xs text-neutral-600" data-i18n="modal.description"></p>
+        <div class="mt-4 space-y-2 categories-light"></div>
+        <div class="mt-4 flex flex-col gap-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="setView('banner')" class="min-h-[40px] rounded-md border border-neutral-300 px-3 text-xs font-medium text-neutral-900 hover:bg-neutral-50" data-i18n="modal.rejectAll"></button>
+            <button onclick="setView('banner')" class="min-h-[40px] rounded-md border border-neutral-300 px-3 text-xs font-medium text-neutral-900 hover:bg-neutral-50" data-i18n="modal.save"></button>
+          </div>
+          <button onclick="setView('banner')" class="min-h-[40px] rounded-md bg-neutral-900 px-3 text-xs font-semibold text-white hover:bg-neutral-800" data-i18n="modal.acceptAll"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK -->
+  <section class="panel-dark relative overflow-hidden dark">
+    <div class="p-6">
+      <span class="inline-block px-2 py-1 rounded bg-neutral-900 text-neutral-300 text-xs font-semibold border border-neutral-700">🌙 DARK MODE</span>
+      <h2 class="mt-4 text-xl font-semibold text-neutral-100">Ornek Sayfa Icerigi</h2>
+      <p class="mt-2 text-sm text-neutral-400 leading-relaxed">Ayni bilesen, ayni component, sadece <code class="bg-neutral-800 px-1 rounded">prefers-color-scheme: dark</code> aktif.</p>
+    </div>
+
+    <!-- BANNER DARK -->
+    <div class="banner-host absolute inset-x-0 bottom-0 hidden">
+      <div role="region" aria-label="Cookie consent" class="border-t border-neutral-800 bg-neutral-950/95 p-4 shadow-2xl backdrop-blur">
+        <div class="flex flex-col gap-3 text-left">
+          <div class="text-sm">
+            <p class="font-semibold text-neutral-100" data-i18n="banner.title"></p>
+            <p class="mt-1 text-neutral-400 text-xs" data-i18n="banner.description"></p>
+          </div>
+          <div class="flex flex-col gap-2">
+            <button onclick="showModal()" class="min-h-[40px] rounded-md border border-neutral-700 px-3 text-xs font-medium text-neutral-100 hover:bg-neutral-900" data-i18n="banner.preferences"></button>
+            <div class="flex gap-2">
+              <button onclick="hideAll()" class="flex-1 min-h-[40px] rounded-md border border-neutral-700 bg-neutral-900 px-3 text-xs font-semibold text-neutral-100 hover:bg-neutral-800" data-i18n="banner.reject"></button>
+              <button onclick="hideAll()" class="flex-1 min-h-[40px] rounded-md bg-white px-3 text-xs font-semibold text-neutral-900 hover:bg-neutral-100" data-i18n="banner.accept"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL DARK -->
+    <div class="modal-host absolute inset-0 hidden flex items-center justify-center p-4">
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="setView('banner')"></div>
+      <div class="relative w-full max-w-[420px] max-h-[80%] overflow-y-auto rounded-lg bg-neutral-950 p-5 shadow-xl border border-neutral-800">
+        <h3 class="text-base font-semibold text-neutral-100" data-i18n="modal.title"></h3>
+        <p class="mt-1 text-xs text-neutral-400" data-i18n="modal.description"></p>
+        <div class="mt-4 space-y-2 categories-dark"></div>
+        <div class="mt-4 flex flex-col gap-2">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="setView('banner')" class="min-h-[40px] rounded-md border border-neutral-700 px-3 text-xs font-medium text-neutral-100 hover:bg-neutral-900" data-i18n="modal.rejectAll"></button>
+            <button onclick="setView('banner')" class="min-h-[40px] rounded-md border border-neutral-700 px-3 text-xs font-medium text-neutral-100 hover:bg-neutral-900" data-i18n="modal.save"></button>
+          </div>
+          <button onclick="setView('banner')" class="min-h-[40px] rounded-md bg-white px-3 text-xs font-semibold text-neutral-900 hover:bg-neutral-100" data-i18n="modal.acceptAll"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const T = {
+  tr: { banner:{ title:"Bu sitede cerez kullaniyoruz", description:"Web sitemizi gelistirmek icin cerezler kullaniyoruz.", accept:"Kabul Et", reject:"Reddet", preferences:"Tercihleri Yonet" }, modal:{ title:"Cerez Tercihleri", description:"Hangi cerez kategorilerini kabul ettiginizi secin.", save:"Kaydet", acceptAll:"Tumunu Kabul", rejectAll:"Tumunu Reddet", categories:{ essential:{title:"Zorunlu", description:"Sitenin temel islevleri icin gereklidir."}, analytics:{title:"Analitik", description:"Anonim ziyaretci analizi."}, marketing:{title:"Pazarlama", description:"Kisisellestirilmis reklamlar."}, functional:{title:"Islevsel", description:"Tema, dil tercihleri."} } } },
+  en: { banner:{ title:"We use cookies", description:"We use cookies to improve our website.", accept:"Accept", reject:"Reject", preferences:"Preferences" }, modal:{ title:"Cookie Preferences", description:"Choose which categories you accept.", save:"Save", acceptAll:"Accept All", rejectAll:"Reject All", categories:{ essential:{title:"Essential", description:"Required for site functionality."}, analytics:{title:"Analytics", description:"Anonymous visitor tracking."}, marketing:{title:"Marketing", description:"Personalized ads."}, functional:{title:"Functional", description:"Theme, language."} } } },
+  de: { banner:{ title:"Wir verwenden Cookies", description:"Wir verwenden Cookies zur Verbesserung der Website.", accept:"Akzeptieren", reject:"Ablehnen", preferences:"Einstellungen" }, modal:{ title:"Cookie-Einstellungen", description:"Wahlen Sie, was Sie akzeptieren.", save:"Speichern", acceptAll:"Alle akzeptieren", rejectAll:"Alle ablehnen", categories:{ essential:{title:"Notwendig", description:"Fur die Funktion erforderlich."}, analytics:{title:"Analyse", description:"Anonyme Besucheranalyse."}, marketing:{title:"Marketing", description:"Personalisierte Werbung."}, functional:{title:"Funktional", description:"Theme, Sprache."} } } },
+  ar: { banner:{ title:"نستخدم ملفات تعريف الارتباط", description:"نستخدم ملفات تعريف الارتباط لتحسين موقعنا.", accept:"قبول", reject:"رفض", preferences:"التفضيلات" }, modal:{ title:"تفضيلات الكوكيز", description:"اختر الفئات المقبولة.", save:"حفظ", acceptAll:"قبول الكل", rejectAll:"رفض الكل", categories:{ essential:{title:"أساسي", description:"مطلوب للموقع."}, analytics:{title:"تحليل", description:"تحليل مجهول."}, marketing:{title:"تسويق", description:"إعلانات مخصصة."}, functional:{title:"وظيفي", description:"السمة واللغة."} } } },
+  he: { banner:{ title:"אנו משתמשים בעוגיות", description:"אנו משתמשים בעוגיות לשיפור האתר.", accept:"אישור", reject:"דחייה", preferences:"העדפות" }, modal:{ title:"העדפות עוגיות", description:"בחר קטגוריות.", save:"שמור", acceptAll:"קבל הכל", rejectAll:"דחה הכל", categories:{ essential:{title:"חיוני", description:"נדרש לאתר."}, analytics:{title:"אנליטיקה", description:"מעקב אנונימי."}, marketing:{title:"שיווק", description:"מודעות מותאמות."}, functional:{title:"פונקציונלי", description:"ערכת נושא ושפה."} } } }
+};
+
+let currentLocale = 'tr';
+let view = 'both';
+
+function get(obj, path) { return path.split('.').reduce((o,k)=>o?.[k], obj); }
+
+function applyLocale() {
+  const t = T[currentLocale];
+  const isRtl = currentLocale === 'ar' || currentLocale === 'he';
+  document.querySelectorAll('section').forEach(s => s.dir = isRtl ? 'rtl' : 'ltr');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = get(t, el.dataset.i18n) || '';
+  });
+  renderCategories();
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.className = b.dataset.lang === currentLocale
+      ? 'lang-btn px-3 py-1 rounded bg-neutral-900 text-white text-sm'
+      : 'lang-btn px-3 py-1 rounded bg-neutral-200 text-sm';
+  });
+}
+
+function renderCategories() {
+  const t = T[currentLocale].modal.categories;
+  const cats = ['essential','analytics','marketing','functional'];
+
+  document.querySelector('.categories-light').innerHTML = cats.map(c => {
+    const meta = t[c]; const disabled = c === 'essential';
+    return `<div class="flex items-start justify-between gap-3 rounded-md border border-neutral-200 p-3">
+      <div class="flex-1"><p class="text-xs font-semibold text-neutral-900">${meta.title}</p><p class="mt-0.5 text-[11px] text-neutral-600">${meta.description}</p></div>
+      <div class="relative h-5 w-9 shrink-0 rounded-full ${disabled ? 'bg-neutral-300 opacity-50' : 'bg-neutral-900'}"><span class="block h-4 w-4 ${disabled ? 'translate-x-0.5' : 'translate-x-[18px]'} mt-0.5 rounded-full bg-white shadow"></span></div>
+    </div>`;
+  }).join('');
+
+  document.querySelector('.categories-dark').innerHTML = cats.map(c => {
+    const meta = t[c]; const disabled = c === 'essential';
+    return `<div class="flex items-start justify-between gap-3 rounded-md border border-neutral-800 p-3">
+      <div class="flex-1"><p class="text-xs font-semibold text-neutral-100">${meta.title}</p><p class="mt-0.5 text-[11px] text-neutral-400">${meta.description}</p></div>
+      <div class="relative h-5 w-9 shrink-0 rounded-full ${disabled ? 'bg-neutral-700 opacity-50' : 'bg-white'}"><span class="block h-4 w-4 ${disabled ? 'translate-x-0.5 bg-white' : 'translate-x-[18px] bg-neutral-900'} mt-0.5 rounded-full shadow"></span></div>
+    </div>`;
+  }).join('');
+}
+
+function setView(v) {
+  view = v;
+  document.querySelectorAll('.banner-host').forEach(el => el.classList.toggle('hidden', !(view === 'banner' || view === 'both')));
+  document.querySelectorAll('.modal-host').forEach(el => el.classList.toggle('hidden', !(view === 'modal' || view === 'both')));
+}
+
+function showModal() { setView('modal'); }
+function hideAll() { setView('banner'); }
+
+document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => { currentLocale = b.dataset.lang; applyLocale(); }));
+
+applyLocale();
+setView('both');
+</script>
+
+</body>
+</html>

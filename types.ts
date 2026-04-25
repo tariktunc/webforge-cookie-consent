@@ -18,6 +18,8 @@ export type ConsentRecord = {
 export type Locale =
   | 'tr' | 'en' | 'de' | 'fr' | 'es' | 'it' | 'ar' | 'he' | 'ru';
 
+export type Theme = 'light' | 'dark' | 'auto';
+
 export type Translation = {
   banner: {
     title: string;
