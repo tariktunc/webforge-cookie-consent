@@ -27,6 +27,10 @@ export const exampleServices: ServicesByCategory = {
         nonCookieStorage: true,
         notes: 'localStorage + cookie',
       },
+      storedInformation: [
+        { identifier: 'wf_consent', type: 'cookie', duration: '365 gun', purpose: 'Onay tercihi saklama' },
+        { identifier: 'wf_consent', type: 'localStorage', duration: 'Kalici', purpose: 'Anlik onay tercihi' },
+      ],
     },
   ],
 
@@ -65,6 +69,11 @@ export const exampleServices: ServicesByCategory = {
       storageInformation: {
         maxCookieAgeDays: 730,
       },
+      storedInformation: [
+        { identifier: '_ga', type: 'cookie', duration: '2 yil', purpose: 'Benzersiz kullanici tanimlayici' },
+        { identifier: '_ga_*', type: 'cookie', duration: '2 yil', purpose: 'Oturum durumu' },
+        { identifier: '_gid', type: 'cookie', duration: '24 saat', purpose: 'Gunluk kullanici ayrimi' },
+      ],
     },
   ],
 
@@ -111,6 +120,11 @@ export const exampleServices: ServicesByCategory = {
       storageInformation: {
         maxCookieAgeDays: 731,
       },
+      storedInformation: [
+        { identifier: '_fbp', type: 'cookie', duration: '90 gun', purpose: 'Facebook Pixel kullanici izleme' },
+        { identifier: '_fbc', type: 'cookie', duration: '90 gun', purpose: 'Reklam tiklama izleme' },
+        { identifier: 'fr', type: 'cookie', duration: '90 gun', purpose: 'Facebook reklam hedefleme' },
+      ],
     },
     {
       id: 'google-tag-manager',
@@ -137,6 +151,9 @@ export const exampleServices: ServicesByCategory = {
       subservices: [
         { id: 'google-ajax', name: 'Google AJAX' },
       ],
+      storedInformation: [
+        { identifier: '_gtm', type: 'cookie', duration: '1 saat', purpose: 'Etiket calistirma kontrolu' },
+      ],
     },
   ],
 
@@ -160,6 +177,11 @@ export const exampleServices: ServicesByCategory = {
         maxCookieAgeDays: 365,
         nonCookieStorage: true,
       },
+      storedInformation: [
+        { identifier: 'theme', type: 'localStorage', duration: 'Kalici', purpose: 'Acik/koyu tema secimi' },
+        { identifier: 'lang', type: 'localStorage', duration: 'Kalici', purpose: 'Dil tercihi' },
+        { identifier: 'a11y', type: 'cookie', duration: '365 gun', purpose: 'Erisilebilirlik tercihleri' },
+      ],
     },
   ],
 };

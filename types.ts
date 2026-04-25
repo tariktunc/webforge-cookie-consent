@@ -28,6 +28,15 @@ export type SubService = {
   name: string;
 };
 
+export type StorageType = 'cookie' | 'localStorage' | 'sessionStorage' | 'indexedDB' | 'pixel';
+
+export type StorageEntry = {
+  identifier: string;
+  type: StorageType;
+  duration?: string;
+  purpose?: string;
+};
+
 export type Service = {
   id: string;
   name: string;
@@ -68,6 +77,8 @@ export type Service = {
     nonCookieStorage?: boolean;
     notes?: string;
   };
+
+  storedInformation?: StorageEntry[];
 
   subservices?: SubService[];
 };
@@ -113,13 +124,21 @@ export type Translation = {
       privacyPolicy: string;
       cookiePolicy: string;
       storageInformation: string;
+      storedInformation: string;
       subservices: string;
+      subserviceCount: string;
       maxCookieAge: string;
       nonCookieStorage: string;
+      identifier: string;
+      type: string;
+      duration: string;
+      purpose: string;
       yes: string;
       no: string;
       readPrivacyPolicy: string;
       readCookiePolicy: string;
+      about: string;
+      aboutDescription: string;
     };
   };
 };

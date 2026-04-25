@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.0] — 2026-04-26
+
+### Added — Tam Usercentrics Paritesi
+- `storedInformation` alani: belirli cookie/storage anahtarlari tablosu
+  (identifier + type + duration + purpose) — Stored Information bolumu
+- "About this tool" bolumu modal alt kisminda — consent management aciklamasi (GDPR Art. 7)
+- Subservice rozeti: kategori basliginda `+1 alt hizmet` mavi rozet
+- 9 dil x 9 yeni alan etiketi (storedInformation, subserviceCount,
+  identifier, type, duration, purpose, about, aboutDescription)
+- ServiceDetail tablosu: storedInformation icin 4-kolon HTML table
+- services.example.ts: 5 servisin tumu storedInformation ile guncellendi
+
 ## [2.0.0] — 2026-04-26 (BREAKING)
 
 ### Added — Service-Level Granular Consent (Usercentrics parite)

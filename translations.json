@@ -38,13 +38,21 @@
         "privacyPolicy": "Gizlilik Politikasi",
         "cookiePolicy": "Cerez Politikasi",
         "storageInformation": "Depolama Bilgisi",
+        "storedInformation": "Saklanan Bilgi",
         "subservices": "Alt Hizmetler",
+        "subserviceCount": "alt hizmet",
         "maxCookieAge": "Maksimum cerez yasi",
         "nonCookieStorage": "Cerez disi depolama",
+        "identifier": "Tanimlayici",
+        "type": "Tur",
+        "duration": "Sure",
+        "purpose": "Amac",
         "yes": "Evet",
         "no": "Hayir",
         "readPrivacyPolicy": "Gizlilik politikasini oku",
-        "readCookiePolicy": "Cerez politikasini oku"
+        "readCookiePolicy": "Cerez politikasini oku",
+        "about": "Bu Arac Hakkinda",
+        "aboutDescription": "Bu arac, ucuncu taraf teknolojilerinin kisisel verileri toplamasi ve islemesi icin onayinizi yonetmenize yardimci olur. Verdiginiz onaylar GDPR Madde 7 ve KVKK Madde 5/1 cercevesinde saklanir ve istediginiz zaman geri cekilebilir."
       }
     }
   },
@@ -87,13 +95,21 @@
         "privacyPolicy": "Privacy Policy",
         "cookiePolicy": "Cookie Policy",
         "storageInformation": "Storage Information",
+        "storedInformation": "Stored Information",
         "subservices": "Subservices",
+        "subserviceCount": "subservices",
         "maxCookieAge": "Maximum cookie age",
         "nonCookieStorage": "Non-cookie storage",
+        "identifier": "Identifier",
+        "type": "Type",
+        "duration": "Duration",
+        "purpose": "Purpose",
         "yes": "Yes",
         "no": "No",
         "readPrivacyPolicy": "Read privacy policy",
-        "readCookiePolicy": "Read cookie policy"
+        "readCookiePolicy": "Read cookie policy",
+        "about": "About this tool",
+        "aboutDescription": "This tool helps you manage consent to third-party technologies collecting and processing personal data. Your consent is stored in compliance with GDPR Article 7 and can be revoked at any time."
       }
     }
   },
@@ -136,13 +152,21 @@
         "privacyPolicy": "Datenschutzerklarung",
         "cookiePolicy": "Cookie-Richtlinie",
         "storageInformation": "Speicherinformationen",
+        "storedInformation": "Gespeicherte Informationen",
         "subservices": "Unterdienste",
+        "subserviceCount": "Unterdienste",
         "maxCookieAge": "Maximales Cookie-Alter",
         "nonCookieStorage": "Nicht-Cookie-Speicher",
+        "identifier": "Bezeichner",
+        "type": "Typ",
+        "duration": "Dauer",
+        "purpose": "Zweck",
         "yes": "Ja",
         "no": "Nein",
         "readPrivacyPolicy": "Datenschutzerklarung lesen",
-        "readCookiePolicy": "Cookie-Richtlinie lesen"
+        "readCookiePolicy": "Cookie-Richtlinie lesen",
+        "about": "Uber dieses Tool",
+        "aboutDescription": "Dieses Tool hilft Ihnen, die Einwilligung zu Drittanbieter-Technologien zu verwalten, die personenbezogene Daten erfassen und verarbeiten. Ihre Einwilligung wird gemass DSGVO Art. 7 gespeichert und kann jederzeit widerrufen werden."
       }
     }
   },
@@ -185,13 +209,21 @@
         "privacyPolicy": "Politique de confidentialite",
         "cookiePolicy": "Politique de cookies",
         "storageInformation": "Informations de stockage",
+        "storedInformation": "Informations stockees",
         "subservices": "Sous-services",
+        "subserviceCount": "sous-services",
         "maxCookieAge": "Age maximum du cookie",
         "nonCookieStorage": "Stockage non-cookie",
+        "identifier": "Identifiant",
+        "type": "Type",
+        "duration": "Duree",
+        "purpose": "Finalite",
         "yes": "Oui",
         "no": "Non",
         "readPrivacyPolicy": "Lire la politique de confidentialite",
-        "readCookiePolicy": "Lire la politique de cookies"
+        "readCookiePolicy": "Lire la politique de cookies",
+        "about": "A propos de cet outil",
+        "aboutDescription": "Cet outil vous aide a gerer le consentement aux technologies tierces qui collectent et traitent des donnees personnelles. Votre consentement est stocke conformement a l'article 7 du RGPD et peut etre revoque a tout moment."
       }
     }
   },
@@ -234,13 +266,21 @@
         "privacyPolicy": "Politica de privacidad",
         "cookiePolicy": "Politica de cookies",
         "storageInformation": "Informacion de almacenamiento",
+        "storedInformation": "Informacion almacenada",
         "subservices": "Subservicios",
+        "subserviceCount": "subservicios",
         "maxCookieAge": "Edad maxima de cookie",
         "nonCookieStorage": "Almacenamiento no-cookie",
+        "identifier": "Identificador",
+        "type": "Tipo",
+        "duration": "Duracion",
+        "purpose": "Proposito",
         "yes": "Si",
         "no": "No",
         "readPrivacyPolicy": "Leer politica de privacidad",
-        "readCookiePolicy": "Leer politica de cookies"
+        "readCookiePolicy": "Leer politica de cookies",
+        "about": "Acerca de esta herramienta",
+        "aboutDescription": "Esta herramienta le ayuda a gestionar el consentimiento para las tecnologias de terceros que recopilan y procesan datos personales. Su consentimiento se almacena de acuerdo con el articulo 7 del RGPD y puede revocarse en cualquier momento."
       }
     }
   },
@@ -283,13 +323,21 @@
         "privacyPolicy": "Politica sulla privacy",
         "cookiePolicy": "Politica sui cookie",
         "storageInformation": "Informazioni di archiviazione",
+        "storedInformation": "Informazioni archiviate",
         "subservices": "Sottoservizi",
+        "subserviceCount": "sottoservizi",
         "maxCookieAge": "Eta massima del cookie",
         "nonCookieStorage": "Archiviazione non-cookie",
+        "identifier": "Identificatore",
+        "type": "Tipo",
+        "duration": "Durata",
+        "purpose": "Scopo",
         "yes": "Si",
         "no": "No",
         "readPrivacyPolicy": "Leggi la privacy policy",
-        "readCookiePolicy": "Leggi la cookie policy"
+        "readCookiePolicy": "Leggi la cookie policy",
+        "about": "Informazioni su questo strumento",
+        "aboutDescription": "Questo strumento ti aiuta a gestire il consenso per le tecnologie di terze parti che raccolgono ed elaborano dati personali. Il tuo consenso e archiviato in conformita con l'articolo 7 del GDPR e puo essere revocato in qualsiasi momento."
       }
     }
   },
@@ -332,13 +380,21 @@
         "privacyPolicy": "سياسة الخصوصية",
         "cookiePolicy": "سياسة ملفات تعريف الارتباط",
         "storageInformation": "معلومات التخزين",
+        "storedInformation": "المعلومات المخزنة",
         "subservices": "الخدمات الفرعية",
+        "subserviceCount": "خدمات فرعية",
         "maxCookieAge": "أقصى عمر للكوكي",
         "nonCookieStorage": "تخزين غير الكوكي",
+        "identifier": "المعرّف",
+        "type": "النوع",
+        "duration": "المدة",
+        "purpose": "الغرض",
         "yes": "نعم",
         "no": "لا",
         "readPrivacyPolicy": "قراءة سياسة الخصوصية",
-        "readCookiePolicy": "قراءة سياسة الكوكي"
+        "readCookiePolicy": "قراءة سياسة الكوكي",
+        "about": "حول هذه الأداة",
+        "aboutDescription": "تساعدك هذه الأداة على إدارة الموافقة على تقنيات الطرف الثالث التي تجمع وتعالج البيانات الشخصية. يتم تخزين موافقتك وفقًا للمادة 7 من اللائحة العامة لحماية البيانات ويمكن سحبها في أي وقت."
       }
     }
   },
@@ -381,13 +437,21 @@
         "privacyPolicy": "מדיניות פרטיות",
         "cookiePolicy": "מדיניות עוגיות",
         "storageInformation": "מידע אחסון",
+        "storedInformation": "מידע מאוחסן",
         "subservices": "שירותי משנה",
+        "subserviceCount": "שירותי משנה",
         "maxCookieAge": "גיל מרבי של עוגייה",
         "nonCookieStorage": "אחסון לא-עוגייה",
+        "identifier": "מזהה",
+        "type": "סוג",
+        "duration": "משך",
+        "purpose": "מטרה",
         "yes": "כן",
         "no": "לא",
         "readPrivacyPolicy": "קרא מדיניות פרטיות",
-        "readCookiePolicy": "קרא מדיניות עוגיות"
+        "readCookiePolicy": "קרא מדיניות עוגיות",
+        "about": "אודות הכלי",
+        "aboutDescription": "כלי זה עוזר לך לנהל הסכמה לטכנולוגיות צד שלישי האוספות ומעבדות נתונים אישיים. הסכמתך נשמרת בהתאם לסעיף 7 של ה-GDPR וניתן לבטלה בכל עת."
       }
     }
   },
@@ -430,13 +494,21 @@
         "privacyPolicy": "Политика конфиденциальности",
         "cookiePolicy": "Политика cookie",
         "storageInformation": "Информация о хранении",
+        "storedInformation": "Сохранённая информация",
         "subservices": "Подсервисы",
+        "subserviceCount": "подсервисов",
         "maxCookieAge": "Максимальный возраст cookie",
         "nonCookieStorage": "Не-cookie хранилище",
+        "identifier": "Идентификатор",
+        "type": "Тип",
+        "duration": "Длительность",
+        "purpose": "Цель",
         "yes": "Да",
         "no": "Нет",
         "readPrivacyPolicy": "Читать политику конфиденциальности",
-        "readCookiePolicy": "Читать политику cookie"
+        "readCookiePolicy": "Читать политику cookie",
+        "about": "Об этом инструменте",
+        "aboutDescription": "Этот инструмент помогает вам управлять согласием на использование сторонних технологий, собирающих и обрабатывающих персональные данные. Ваше согласие хранится в соответствии со статьёй 7 GDPR и может быть отозвано в любое время."
       }
     }
   }

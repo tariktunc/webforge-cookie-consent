@@ -149,6 +149,14 @@ export function CookiePreferences({
                             {count}
                           </span>
                         )}
+                        {(() => {
+                          const subCount = list.reduce((acc, s) => acc + (s.subservices?.length ?? 0), 0);
+                          return subCount > 0 ? (
+                            <span className="inline-flex items-center px-1.5 h-5 rounded-full bg-blue-100 text-blue-900 text-[clamp(9px,1.5vw,11px)] font-medium dark:bg-blue-900/40 dark:text-blue-200">
+                              +{subCount} {t.modal.fields.subserviceCount}
+                            </span>
+                          ) : null;
+                        })()}
                       </div>
                       <p className="mt-1 text-[clamp(10px,1.8vw,12px)] text-neutral-600 dark:text-neutral-400 leading-snug">{meta.description}</p>
                     </div>
@@ -209,6 +217,11 @@ export function CookiePreferences({
             >
               {t.modal.acceptAll}
             </button>
+          </div>
+
+          <div className="mt-6 pt-4 border-t border-neutral-200 dark:border-neutral-800">
+            <p className="text-[clamp(11px,2vw,13px)] font-semibold text-neutral-900 dark:text-neutral-100">{t.modal.fields.about}</p>
+            <p className="mt-1 text-[clamp(10px,1.8vw,12px)] text-neutral-600 dark:text-neutral-400 leading-snug">{t.modal.fields.aboutDescription}</p>
           </div>
 
           <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-800 flex justify-center">

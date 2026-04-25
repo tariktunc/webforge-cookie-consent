@@ -141,8 +141,35 @@ export function ServiceDetail({ service, locale, enabled, disabled, onToggle, bo
             </Field>
           )}
 
+          {service.storedInformation && service.storedInformation.length > 0 && (
+            <Field label={f.storedInformation}>
+              <div className="overflow-x-auto -mx-1">
+                <table className="w-full text-[clamp(9px,1.5vw,11px)] mt-1">
+                  <thead>
+                    <tr className="border-b border-neutral-200 dark:border-neutral-800">
+                      <th className="text-start font-semibold py-1 px-1">{f.identifier}</th>
+                      <th className="text-start font-semibold py-1 px-1">{f.type}</th>
+                      <th className="text-start font-semibold py-1 px-1">{f.duration}</th>
+                      <th className="text-start font-semibold py-1 px-1">{f.purpose}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {service.storedInformation.map((entry, i) => (
+                      <tr key={`${entry.identifier}-${i}`} className="border-b border-neutral-100 dark:border-neutral-900 last:border-0">
+                        <td className="py-1 px-1 font-mono break-all">{entry.identifier}</td>
+                        <td className="py-1 px-1">{entry.type}</td>
+                        <td className="py-1 px-1">{entry.duration ?? '-'}</td>
+                        <td className="py-1 px-1">{entry.purpose ?? '-'}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Field>
+          )}
+
           {service.subservices && service.subservices.length > 0 && (
-            <Field label={f.subservices}>
+            <Field label={`${f.subservices} (${service.subservices.length} ${f.subserviceCount})`}>
               <ul className="list-disc list-inside space-y-0.5">
                 {service.subservices.map((s) => <li key={s.id}>{s.name}</li>)}
               </ul>
