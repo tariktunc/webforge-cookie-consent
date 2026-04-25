@@ -5,7 +5,7 @@ import { acceptAll, rejectAll, hasConsent, CHANGE_EVENT } from './consent-store'
 import { CookiePreferences } from './CookiePreferences';
 import { BlakfyBadge } from './BlakfyBadge';
 import translations from './translations.json';
-import type { Locale, Theme, Translation } from './types';
+import type { Locale, Theme, Translation, ServicesByCategory } from './types';
 
 type Props = {
   locale?: Locale;
@@ -14,6 +14,7 @@ type Props = {
   borderWidth?: string;
   borderRadius?: string;
   blakfyBadgeUrl?: string;
+  services?: ServicesByCategory;
 };
 
 const DEFAULT_FONT = "'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
@@ -43,6 +44,7 @@ export function CookieBanner({
   borderWidth = DEFAULT_BORDER_WIDTH,
   borderRadius = DEFAULT_BORDER_RADIUS,
   blakfyBadgeUrl,
+  services,
 }: Props) {
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
@@ -89,7 +91,10 @@ export function CookieBanner({
               </button>
               <button
                 type="button"
-                onClick={() => rejectAll(locale)}
+                onClick={() => {
+                  const requiredIds = (services?.essential ?? []).map((s) => s.id);
+                  rejectAll(locale, requiredIds);
+                }}
                 style={btnBorder}
                 className="min-h-[44px] border-solid border-neutral-300 bg-white px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 whitespace-nowrap"
               >
@@ -97,7 +102,11 @@ export function CookieBanner({
               </button>
               <button
                 type="button"
-                onClick={() => acceptAll(locale)}
+                onClick={() => {
+                  const allIds = (['essential','analytics','marketing','functional'] as const)
+                    .flatMap((c) => services?.[c]?.map((s) => s.id) ?? []);
+                  acceptAll(locale, allIds);
+                }}
                 style={btnPrimary}
                 className="min-h-[44px] bg-neutral-900 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 whitespace-nowrap"
               >
@@ -114,6 +123,7 @@ export function CookieBanner({
         borderWidth={borderWidth}
         borderRadius={borderRadius}
         blakfyBadgeUrl={blakfyBadgeUrl}
+        services={services}
         open={prefsOpen}
         onOpenChange={setPrefsOpen}
       />

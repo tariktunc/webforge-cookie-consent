@@ -64,6 +64,12 @@ export default function RootLayout({ children }) {
 | Border radius: default 0.5rem, override edilebilir | ✅ (`borderRadius` prop) |
 | Otomatik proje token'i tespiti (setup.mjs) | ✅ |
 | **Blakfy Studio imzasi** (Powered by linki) | ✅ Non-removable |
+| **Servis-seviyesi consent** (Usercentrics parite) | ✅ |
+| **GDPR Art. 13/14 seffafligi** (13+ alan) | ✅ |
+| Servis sayisi rozeti her kategoride | ✅ |
+| Detay accordion (her servis icin) | ✅ |
+| Subservice nesting | ✅ |
+| Per-service toggle | ✅ |
 | Re-open butonu (Footer linki) | ✅ |
 
 ---

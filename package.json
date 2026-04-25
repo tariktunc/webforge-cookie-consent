@@ -1,6 +1,6 @@
 {
   "name": "webforge-cookie-consent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "GDPR + KVKK + Google Consent Mode v2 uyumlu, opt-in, 9 dil destekli React cerez consent bileseni. WebForge ekosistemi.",
   "license": "MIT",
   "author": "Tarık Tunç",

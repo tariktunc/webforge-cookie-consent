@@ -7,8 +7,11 @@ export type ConsentState = {
   functional: boolean;
 };
 
+export type ServiceConsentState = Record<string, boolean>;
+
 export type ConsentRecord = {
   state: ConsentState;
+  services: ServiceConsentState;
   version: string;
   timestamp: string;
   locale: string;
@@ -19,6 +22,62 @@ export type Locale =
   | 'tr' | 'en' | 'de' | 'fr' | 'es' | 'it' | 'ar' | 'he' | 'ru';
 
 export type Theme = 'light' | 'dark' | 'auto';
+
+export type SubService = {
+  id: string;
+  name: string;
+};
+
+export type Service = {
+  id: string;
+  name: string;
+  category: ConsentCategory;
+  required?: boolean;
+
+  description: string;
+
+  processingCompany: {
+    name: string;
+    address?: string;
+  };
+
+  dataProtectionOfficer?: {
+    email?: string;
+    url?: string;
+  };
+
+  dataPurposes: string[];
+  technologiesUsed: string[];
+  dataCollected: string[];
+
+  legalBasis: string[];
+
+  locationOfProcessing: string;
+
+  retentionPeriod: string;
+
+  transferToThirdCountries?: string[];
+
+  dataRecipients: string[];
+
+  privacyPolicyUrl?: string;
+  cookiePolicyUrl?: string;
+
+  storageInformation?: {
+    maxCookieAgeDays?: number;
+    nonCookieStorage?: boolean;
+    notes?: string;
+  };
+
+  subservices?: SubService[];
+};
+
+export type ServicesByCategory = {
+  essential?: Service[];
+  analytics?: Service[];
+  marketing?: Service[];
+  functional?: Service[];
+};
 
 export type Translation = {
   banner: {
@@ -35,6 +94,32 @@ export type Translation = {
     acceptAll: string;
     rejectAll: string;
     close: string;
+    serviceCount: string;
+    showDetails: string;
+    hideDetails: string;
     categories: Record<ConsentCategory, { title: string; description: string }>;
+    fields: {
+      description: string;
+      processingCompany: string;
+      dpo: string;
+      dataPurposes: string;
+      technologiesUsed: string;
+      dataCollected: string;
+      legalBasis: string;
+      locationOfProcessing: string;
+      retentionPeriod: string;
+      transferToThirdCountries: string;
+      dataRecipients: string;
+      privacyPolicy: string;
+      cookiePolicy: string;
+      storageInformation: string;
+      subservices: string;
+      maxCookieAge: string;
+      nonCookieStorage: string;
+      yes: string;
+      no: string;
+      readPrivacyPolicy: string;
+      readCookiePolicy: string;
+    };
   };
 };

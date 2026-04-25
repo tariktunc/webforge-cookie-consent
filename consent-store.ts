@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import type { ConsentState, ConsentRecord, ConsentCategory } from './types';
+import type { ConsentState, ConsentRecord, ServiceConsentState } from './types';
 
-const VERSION = '1.0.0';
+const VERSION = '2.0.0';
 const STORAGE_KEY = 'wf_consent';
 const COOKIE_KEY = 'wf_consent';
 const COOKIE_DAYS = 365;
 const OPEN_EVENT = 'wf:consent:open';
 const CHANGE_EVENT = 'wf:consent:change';
 
-const DEFAULT: ConsentState = {
+const DEFAULT_STATE: ConsentState = {
   essential: true,
   analytics: false,
   marketing: false,
@@ -42,9 +42,10 @@ function readConsent(): ConsentRecord | null {
   return null;
 }
 
-function writeConsent(state: ConsentState, locale: string): ConsentRecord {
+function writeConsent(state: ConsentState, services: ServiceConsentState, locale: string): ConsentRecord {
   const record: ConsentRecord = {
     state: { ...state, essential: true },
+    services,
     version: VERSION,
     timestamp: new Date().toISOString(),
     locale,
@@ -74,16 +75,22 @@ function pushToGCM(state: ConsentState) {
   });
 }
 
-export function acceptAll(locale = 'en'): ConsentRecord {
-  return writeConsent({ essential: true, analytics: true, marketing: true, functional: true }, locale);
+export function acceptAll(locale = 'en', allServiceIds: string[] = []): ConsentRecord {
+  const services: ServiceConsentState = Object.fromEntries(allServiceIds.map((id) => [id, true]));
+  return writeConsent({ essential: true, analytics: true, marketing: true, functional: true }, services, locale);
 }
 
-export function rejectAll(locale = 'en'): ConsentRecord {
-  return writeConsent({ ...DEFAULT }, locale);
+export function rejectAll(locale = 'en', requiredServiceIds: string[] = []): ConsentRecord {
+  const services: ServiceConsentState = Object.fromEntries(requiredServiceIds.map((id) => [id, true]));
+  return writeConsent({ ...DEFAULT_STATE }, services, locale);
 }
 
-export function savePreferences(state: Partial<ConsentState>, locale = 'en'): ConsentRecord {
-  return writeConsent({ ...DEFAULT, ...state, essential: true }, locale);
+export function savePreferences(
+  state: Partial<ConsentState>,
+  services: ServiceConsentState,
+  locale = 'en',
+): ConsentRecord {
+  return writeConsent({ ...DEFAULT_STATE, ...state, essential: true }, services, locale);
 }
 
 export function hasConsent(): boolean {
@@ -91,7 +98,11 @@ export function hasConsent(): boolean {
 }
 
 export function getConsent(): ConsentState {
-  return readConsent()?.state ?? DEFAULT;
+  return readConsent()?.state ?? DEFAULT_STATE;
+}
+
+export function getServiceConsent(): ServiceConsentState {
+  return readConsent()?.services ?? {};
 }
 
 export function openCookiePreferences() {
@@ -103,12 +114,12 @@ function subscribe(cb: () => void) {
   return () => window.removeEventListener(CHANGE_EVENT, cb);
 }
 
+function snapshot(): string { return JSON.stringify(getConsent()); }
+function serverSnapshot(): string { return JSON.stringify(DEFAULT_STATE); }
+
 export function useConsent(): ConsentState {
-  return useSyncExternalStore(
-    subscribe,
-    () => JSON.stringify(getConsent()),
-    () => JSON.stringify(DEFAULT),
-  ) as unknown as ConsentState extends string ? never : ConsentState extends infer T ? T : never as ConsentState;
+  const json = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
+  return JSON.parse(json) as ConsentState;
 }
 
 export function useConsentDecided(): boolean {
