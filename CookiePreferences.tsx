@@ -53,12 +53,12 @@ export function CookiePreferences({ locale = 'en', theme = 'auto', font, open, o
         <Dialog.Content
           dir={isRtl ? 'rtl' : 'ltr'}
           style={font ? { fontFamily: font } : undefined}
-          className={`${resolvedTheme === 'dark' ? 'dark' : ''} fixed left-1/2 top-1/2 z-[10000] w-[min(560px,calc(100%-2rem))] max-h-[85vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg bg-white p-6 shadow-xl focus:outline-none dark:bg-neutral-950 data-[state=open]:animate-in data-[state=closed]:animate-out`}
+          className={`${resolvedTheme === 'dark' ? 'dark' : ''} fixed left-1/2 top-1/2 z-[10000] w-[min(560px,calc(100%-1rem))] max-h-[85vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg bg-white p-4 sm:p-6 shadow-xl focus:outline-none dark:bg-neutral-950 data-[state=open]:animate-in data-[state=closed]:animate-out`}
         >
-          <Dialog.Title className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+          <Dialog.Title className="text-[clamp(14px,3vw,18px)] font-semibold text-neutral-900 dark:text-neutral-100 leading-tight">
             {t.modal.title}
           </Dialog.Title>
-          <Dialog.Description className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+          <Dialog.Description className="mt-2 text-[clamp(11px,2vw,14px)] text-neutral-600 dark:text-neutral-400 leading-snug">
             {t.modal.description}
           </Dialog.Description>
 
@@ -68,10 +68,10 @@ export function CookiePreferences({ locale = 'en', theme = 'auto', font, open, o
               const checked = state[cat];
               const disabled = cat === 'essential';
               return (
-                <div key={cat} className="flex items-start justify-between gap-4 rounded-md border border-neutral-200 p-4 dark:border-neutral-800">
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-neutral-900 dark:text-neutral-100">{meta.title}</p>
-                    <p className="mt-1 text-xs text-neutral-600 dark:text-neutral-400">{meta.description}</p>
+                <div key={cat} className="flex items-start justify-between gap-3 sm:gap-4 rounded-md border border-neutral-200 p-3 sm:p-4 dark:border-neutral-800">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[clamp(11px,2.2vw,14px)] font-semibold text-neutral-900 dark:text-neutral-100 leading-tight">{meta.title}</p>
+                    <p className="mt-1 text-[clamp(10px,1.8vw,12px)] text-neutral-600 dark:text-neutral-400 leading-snug">{meta.description}</p>
                   </div>
                   <Switch.Root
                     checked={checked}
@@ -91,21 +91,21 @@ export function CookiePreferences({ locale = 'en', theme = 'auto', font, open, o
             <button
               type="button"
               onClick={() => { rejectAll(locale); onOpenChange(false); }}
-              className="min-h-[44px] rounded-md border border-neutral-300 px-4 text-sm font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900"
+              className="min-h-[44px] rounded-md border border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
             >
               {t.modal.rejectAll}
             </button>
             <button
               type="button"
               onClick={() => { savePreferences(state, locale); onOpenChange(false); }}
-              className="min-h-[44px] rounded-md border border-neutral-300 px-4 text-sm font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900"
+              className="min-h-[44px] rounded-md border border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
             >
               {t.modal.save}
             </button>
             <button
               type="button"
               onClick={() => { acceptAll(locale); onOpenChange(false); }}
-              className="min-h-[44px] rounded-md bg-neutral-900 px-4 text-sm font-semibold text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100"
+              className="min-h-[44px] rounded-md bg-neutral-900 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 whitespace-nowrap"
             >
               {t.modal.acceptAll}
             </button>

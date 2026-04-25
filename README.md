@@ -58,6 +58,8 @@ export default function RootLayout({ children }) {
 | 280px responsive | ✅ |
 | Yazi tipi: default **Poppins**, override edilebilir | ✅ |
 | Light / Dark / Auto tema | ✅ (`theme` prop) |
+| Akiskan tipografi (clamp) — min **10px**, max 18px | ✅ |
+| Touch target min 44x44px (WCAG 2.2 AA) | ✅ |
 | Re-open butonu (Footer linki) | ✅ |
 
 ---
