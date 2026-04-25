@@ -75,6 +75,10 @@ export default function RootLayout({ children, params }: { children: React.React
   return (
     <html lang={params.locale ?? 'tr'}>
       <head>
+        {/* Default font Poppins — projeniz farkli font kullaniyorsa font prop'u ile gecin */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" />
         <ConsentModeInit />
       </head>
       <body>
@@ -84,6 +88,32 @@ export default function RootLayout({ children, params }: { children: React.React
     </html>
   );
 }
+```
+
+### Yazi Tipi (Font) Ozellestirme
+
+**Default:** Poppins (Google Fonts'tan yuklenir)
+
+```tsx
+{/* Default Poppins */}
+<CookieBanner />
+
+{/* Projenin temasinin font'unu kullan */}
+<CookieBanner font="inherit" />
+
+{/* Ozel font */}
+<CookieBanner font="'Inter', system-ui, sans-serif" />
+
+{/* CSS degiskeni ile projeden cek */}
+<CookieBanner font="var(--font-sans)" />
+```
+
+Tailwind / next/font kullaniyorsaniz:
+```tsx
+import { Inter } from 'next/font/google';
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+
+<CookieBanner font="var(--font-sans)" />
 ```
 
 ### Adim 2 — Footer'a "Tercihleri Yonet" linki

@@ -16,13 +16,14 @@ import type { ConsentState, Locale, Theme, Translation, ConsentCategory } from '
 type Props = {
   locale?: Locale;
   theme?: Theme;
+  font?: string;
   open: boolean;
   onOpenChange: (v: boolean) => void;
 };
 
 const CATEGORIES: ConsentCategory[] = ['essential', 'analytics', 'marketing', 'functional'];
 
-export function CookiePreferences({ locale = 'en', theme = 'auto', open, onOpenChange }: Props) {
+export function CookiePreferences({ locale = 'en', theme = 'auto', font, open, onOpenChange }: Props) {
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;
   const isRtl = locale === 'ar' || locale === 'he';
   const [state, setState] = useState<ConsentState>(() => getConsent());
@@ -51,6 +52,7 @@ export function CookiePreferences({ locale = 'en', theme = 'auto', open, onOpenC
         <Dialog.Overlay className={`${resolvedTheme === 'dark' ? 'dark' : ''} fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0`} />
         <Dialog.Content
           dir={isRtl ? 'rtl' : 'ltr'}
+          style={font ? { fontFamily: font } : undefined}
           className={`${resolvedTheme === 'dark' ? 'dark' : ''} fixed left-1/2 top-1/2 z-[10000] w-[min(560px,calc(100%-2rem))] max-h-[85vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-lg bg-white p-6 shadow-xl focus:outline-none dark:bg-neutral-950 data-[state=open]:animate-in data-[state=closed]:animate-out`}
         >
           <Dialog.Title className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">

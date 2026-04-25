@@ -9,7 +9,10 @@ import type { Locale, Theme, Translation } from './types';
 type Props = {
   locale?: Locale;
   theme?: Theme;
+  font?: string;
 };
+
+const DEFAULT_FONT = "'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
 function useThemeClass(theme: Theme) {
   const [resolved, setResolved] = useState<'light' | 'dark'>('light');
@@ -27,7 +30,7 @@ function useThemeClass(theme: Theme) {
   return resolved;
 }
 
-export function CookieBanner({ locale = 'en', theme = 'auto' }: Props) {
+export function CookieBanner({ locale = 'en', theme = 'auto', font = DEFAULT_FONT }: Props) {
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;
@@ -45,7 +48,7 @@ export function CookieBanner({ locale = 'en', theme = 'auto' }: Props) {
   if (!visible && !prefsOpen) return null;
 
   return (
-    <div className={themeClass}>
+    <div className={themeClass} style={{ fontFamily: font }}>
       {visible && (
         <div
           role="region"
@@ -87,6 +90,7 @@ export function CookieBanner({ locale = 'en', theme = 'auto' }: Props) {
       <CookiePreferences
         locale={locale}
         theme={theme}
+        font={font}
         open={prefsOpen}
         onOpenChange={setPrefsOpen}
       />

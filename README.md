@@ -56,6 +56,8 @@ export default function RootLayout({ children }) {
 | Klavye erisilebilirligi | ✅ |
 | 9 dil destegi | ✅ TR, EN, DE, FR, ES, IT, AR (RTL), HE (RTL), RU |
 | 280px responsive | ✅ |
+| Yazi tipi: default **Poppins**, override edilebilir | ✅ |
+| Light / Dark / Auto tema | ✅ (`theme` prop) |
 | Re-open butonu (Footer linki) | ✅ |
 
 ---
