@@ -60,6 +60,9 @@ export default function RootLayout({ children }) {
 | Light / Dark / Auto tema | ✅ (`theme` prop) |
 | Akiskan tipografi (clamp) — min **10px**, max 18px | ✅ |
 | Touch target min 44x44px (WCAG 2.2 AA) | ✅ |
+| Buton border: default **3px**, override edilebilir | ✅ (`borderWidth` prop) |
+| Border radius: default 0.5rem, override edilebilir | ✅ (`borderRadius` prop) |
+| Otomatik proje token'i tespiti (setup.mjs) | ✅ |
 | Re-open butonu (Footer linki) | ✅ |
 
 ---

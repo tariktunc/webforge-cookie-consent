@@ -10,9 +10,13 @@ type Props = {
   locale?: Locale;
   theme?: Theme;
   font?: string;
+  borderWidth?: string;
+  borderRadius?: string;
 };
 
 const DEFAULT_FONT = "'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+const DEFAULT_BORDER_WIDTH = '3px';
+const DEFAULT_BORDER_RADIUS = '0.5rem';
 
 function useThemeClass(theme: Theme) {
   const [resolved, setResolved] = useState<'light' | 'dark'>('light');
@@ -30,7 +34,13 @@ function useThemeClass(theme: Theme) {
   return resolved;
 }
 
-export function CookieBanner({ locale = 'en', theme = 'auto', font = DEFAULT_FONT }: Props) {
+export function CookieBanner({
+  locale = 'en',
+  theme = 'auto',
+  font = DEFAULT_FONT,
+  borderWidth = DEFAULT_BORDER_WIDTH,
+  borderRadius = DEFAULT_BORDER_RADIUS,
+}: Props) {
   const [visible, setVisible] = useState(false);
   const [prefsOpen, setPrefsOpen] = useState(false);
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;
@@ -46,6 +56,9 @@ export function CookieBanner({ locale = 'en', theme = 'auto', font = DEFAULT_FON
   }, []);
 
   if (!visible && !prefsOpen) return null;
+
+  const btnBorder = { borderWidth, borderRadius };
+  const btnPrimary = { borderRadius };
 
   return (
     <div className={themeClass} style={{ fontFamily: font }}>
@@ -65,21 +78,24 @@ export function CookieBanner({ locale = 'en', theme = 'auto', font = DEFAULT_FON
               <button
                 type="button"
                 onClick={() => setPrefsOpen(true)}
-                className="min-h-[44px] rounded-md border border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
+                style={btnBorder}
+                className="min-h-[44px] border-solid border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
               >
                 {t.banner.preferences}
               </button>
               <button
                 type="button"
                 onClick={() => rejectAll(locale)}
-                className="min-h-[44px] rounded-md border border-neutral-300 bg-white px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 whitespace-nowrap"
+                style={btnBorder}
+                className="min-h-[44px] border-solid border-neutral-300 bg-white px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-neutral-900 hover:bg-neutral-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 whitespace-nowrap"
               >
                 {t.banner.reject}
               </button>
               <button
                 type="button"
                 onClick={() => acceptAll(locale)}
-                className="min-h-[44px] rounded-md bg-neutral-900 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 whitespace-nowrap"
+                style={btnPrimary}
+                className="min-h-[44px] bg-neutral-900 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-white hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 whitespace-nowrap"
               >
                 {t.banner.accept}
               </button>
@@ -91,6 +107,8 @@ export function CookieBanner({ locale = 'en', theme = 'auto', font = DEFAULT_FON
         locale={locale}
         theme={theme}
         font={font}
+        borderWidth={borderWidth}
+        borderRadius={borderRadius}
         open={prefsOpen}
         onOpenChange={setPrefsOpen}
       />

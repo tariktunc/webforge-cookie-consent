@@ -17,13 +17,23 @@ type Props = {
   locale?: Locale;
   theme?: Theme;
   font?: string;
+  borderWidth?: string;
+  borderRadius?: string;
   open: boolean;
   onOpenChange: (v: boolean) => void;
 };
 
 const CATEGORIES: ConsentCategory[] = ['essential', 'analytics', 'marketing', 'functional'];
 
-export function CookiePreferences({ locale = 'en', theme = 'auto', font, open, onOpenChange }: Props) {
+export function CookiePreferences({
+  locale = 'en',
+  theme = 'auto',
+  font,
+  borderWidth = '3px',
+  borderRadius = '0.5rem',
+  open,
+  onOpenChange,
+}: Props) {
   const t = (translations as Record<Locale, Translation>)[locale] ?? (translations as Record<string, Translation>).en;
   const isRtl = locale === 'ar' || locale === 'he';
   const [state, setState] = useState<ConsentState>(() => getConsent());
@@ -91,21 +101,24 @@ export function CookiePreferences({ locale = 'en', theme = 'auto', font, open, o
             <button
               type="button"
               onClick={() => { rejectAll(locale); onOpenChange(false); }}
-              className="min-h-[44px] rounded-md border border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
+              style={{ borderWidth, borderRadius }}
+              className="min-h-[44px] border-solid border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
             >
               {t.modal.rejectAll}
             </button>
             <button
               type="button"
               onClick={() => { savePreferences(state, locale); onOpenChange(false); }}
-              className="min-h-[44px] rounded-md border border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
+              style={{ borderWidth, borderRadius }}
+              className="min-h-[44px] border-solid border-neutral-300 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-medium text-neutral-900 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:bg-neutral-900 whitespace-nowrap"
             >
               {t.modal.save}
             </button>
             <button
               type="button"
               onClick={() => { acceptAll(locale); onOpenChange(false); }}
-              className="min-h-[44px] rounded-md bg-neutral-900 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 whitespace-nowrap"
+              style={{ borderRadius }}
+              className="min-h-[44px] bg-neutral-900 px-3 sm:px-4 text-[clamp(11px,2.2vw,14px)] font-semibold text-white hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-100 whitespace-nowrap"
             >
               {t.modal.acceptAll}
             </button>

@@ -90,22 +90,33 @@ export default function RootLayout({ children, params }: { children: React.React
 }
 ```
 
-### Yazi Tipi (Font) Ozellestirme
+### Stil Ozellestirme (Font + Border)
 
-**Default:** Poppins (Google Fonts'tan yuklenir)
+**Default'lar:**
+- Font: **Poppins** (Google Fonts)
+- Border genisligi: **3px**
+- Border radius: **0.5rem** (8px)
 
 ```tsx
-{/* Default Poppins */}
+{/* Default — Poppins, 3px border, 0.5rem radius */}
 <CookieBanner />
 
-{/* Projenin temasinin font'unu kullan */}
-<CookieBanner font="inherit" />
+{/* Projenin temasini kullan */}
+<CookieBanner font="inherit" borderWidth="2px" borderRadius="0.375rem" />
 
-{/* Ozel font */}
-<CookieBanner font="'Inter', system-ui, sans-serif" />
+{/* Tamamen ozel */}
+<CookieBanner
+  font="'Inter', system-ui, sans-serif"
+  borderWidth="1px"
+  borderRadius="9999px"
+/>
 
-{/* CSS degiskeni ile projeden cek */}
-<CookieBanner font="var(--font-sans)" />
+{/* CSS degiskenleri (tokens.config.ts'ten) */}
+<CookieBanner
+  font="var(--font-sans)"
+  borderWidth="var(--border-width-button)"
+  borderRadius="var(--radius-md)"
+/>
 ```
 
 Tailwind / next/font kullaniyorsaniz:
@@ -115,6 +126,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 <CookieBanner font="var(--font-sans)" />
 ```
+
+> 🤖 **AI not:** `setup.mjs` calistirildiginda projenin `tokens.config.ts` dosyasini otomatik tarar; bulduklari onerilen default olarak sunulur. Kullanici onaylar ya da degistirir.
 
 ### Adim 2 — Footer'a "Tercihleri Yonet" linki
 
